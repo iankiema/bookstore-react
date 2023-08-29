@@ -1,9 +1,8 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addBook, removeBook } from '../redux/books/booksSlice';
 
-const Home = () => {
-  const books = useSelector((state) => state.books);
+const BookActions = () => {
   const dispatch = useDispatch();
 
   const handleAddBook = () => {
@@ -22,23 +21,10 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Books</h1>
-      <ul>
-        {books.map((book) => (
-          <li key={book.item_id}>
-            {book.title}
-            {' '}
-            by
-            {' '}
-            {book.author}
-            {' '}
-            <button type="button" onClick={() => handleRemoveBook(book.item_id)}>Remove</button>
-          </li>
-        ))}
-      </ul>
       <button type="button" onClick={handleAddBook}>Add Book</button>
+      <button type="button" onClick={() => handleRemoveBook('item1')}>Remove Book</button>
     </div>
   );
 };
 
-export default Home;
+export default BookActions;
