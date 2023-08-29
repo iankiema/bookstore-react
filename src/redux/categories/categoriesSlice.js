@@ -7,6 +7,7 @@ const categoriesSlice = createSlice({
   },
   reducers: {
     checkStatus: (state, action) => {
+      // eslint-disable-next-line no-param-reassign
       state.categories = action.payload === 'Under construction'
         ? 'Under construction'
         : state.categories;
