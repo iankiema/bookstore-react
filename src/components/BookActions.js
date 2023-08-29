@@ -1,6 +1,7 @@
+// BookActions.js
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { addBook, removeBook } from '../redux/books/booksSlice';
+import { addBook } from '../redux/books/booksSlice';
 
 const BookActions = () => {
   const dispatch = useDispatch();
@@ -15,14 +16,9 @@ const BookActions = () => {
     dispatch(addBook(newBook));
   };
 
-  const handleRemoveBook = (itemId) => {
-    dispatch(removeBook(itemId));
-  };
-
   return (
     <div>
-      <button type="button" onClick={handleAddBook}>Add Book</button>
-      <button type="button" onClick={() => handleRemoveBook('item1')}>Remove Book</button>
+      <button className="book-form-button" type="button" onClick={handleAddBook}>Add Book</button>
     </div>
   );
 };
