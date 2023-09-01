@@ -1,36 +1,32 @@
-import React from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/booksSlice';
+import { fetchInitialBooks } from '../redux/books/booksSlice';
+import Book from './Books';
+import Form from './BookActions';
 
 const BookList = () => {
-  const books = useSelector((state) => state.books.books);
   const dispatch = useDispatch();
+  const books = useSelector((state) => state.books.books);
 
-  const handleRemoveBook = (itemId) => {
-    dispatch(removeBook(itemId));
-  };
+  useEffect(() => {
+    dispatch(fetchInitialBooks());
+  }, [dispatch]);
 
   return (
-    <div>
-      {books.map((book) => (
-        <div className="book" key={book.item_id}>
-          <h3>{book.title}</h3>
-          <p className="book-author">
-            Author:
-            {' '}
-            {book.author}
-          </p>
-          <p>
-            Category:
-            {' '}
-            {book.category}
-          </p>
-          <button className="book-delete-button" type="button" onClick={() => handleRemoveBook(book.item_id)}>
-            Remove Book
-          </button>
-        </div>
-      ))}
-    </div>
+    <>
+      <ul className="books">
+        {books.map((book) => (
+          <Book
+            key={book.item_id}
+            id={book.item_id}
+            title={book.title}
+            author={book.author}
+            category={book.category}
+          />
+        ))}
+      </ul>
+      <Form />
+    </>
   );
 };
 

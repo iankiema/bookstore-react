@@ -1,6 +1,5 @@
 import Navigation from './Navigation';
 import BookList from './BookList';
-import BookActions from './BookActions';
 import '../App.css';
 
 const Home = () => (
@@ -10,7 +9,6 @@ const Home = () => (
       <Navigation />
     </div>
     <BookList />
-    <BookActions />
   </div>
 );
 
