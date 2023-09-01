@@ -10,13 +10,14 @@ p {
 /* Basic styling for the app */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #f3c5c5;
   color: #333;
 }
 
 .page {
   max-width: 800px;
   margin: 0 auto;
+  margin-top: 20px;
   padding: 20px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
