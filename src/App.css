@@ -10,7 +10,7 @@ p {
 /* Basic styling for the app */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f3c5c5;
+  background-color: #c6dff7;
   color: #333;
 }
 
@@ -54,7 +54,7 @@ body {
   border: 1px solid #ddd;
   padding: 10px;
   margin-bottom: 10px;
-  background-color: lightgoldenrodyellow;
+  background-color: rgb(245, 245, 186);
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
