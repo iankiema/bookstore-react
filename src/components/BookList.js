@@ -1,53 +1,32 @@
-// BookList.js
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeBook, fetchBooks } from '../redux/books/booksSlice';
+import { fetchInitialBooks } from '../redux/books/booksSlice';
+import Book from './Books';
+import Form from './BookActions';
 
 const BookList = () => {
-  const books = useSelector((state) => state.books.books);
-  const status = useSelector((state) => state.books.status);
   const dispatch = useDispatch();
-
-  const appId = 'abc123';
-
-  const handleRemoveBook = (itemId) => {
-    dispatch(removeBook(itemId));
-  };
+  const books = useSelector((state) => state.books.books);
 
   useEffect(() => {
-    if (status === 'idle') {
-      dispatch(fetchBooks(appId));
-    }
-  }, [status, dispatch, appId]);
-
-  if (status === 'loading') {
-    return <div>Loading...</div>;
-  }
+    dispatch(fetchInitialBooks());
+  }, [dispatch]);
 
   return (
-    <div>
-      {Object.keys(books).map((item_id) => (
-        <div className="book" key={item_id}>
-          {books[item_id].map(book) => (
-          <h3>{book.title}</h3>
-          <p className="book-author">
-            Author:
-            {' '}
-            {book.author}
-          </p>
-          <p>
-            Category:
-            {' '}
-            {book.category}
-          </p>
-          <button className="book-delete-button" type="button" onClick={() => handleRemoveBook(book.item_id)}>
-            Remove Book
-          </button>
-          )}
-        </div>
-
-      ))}
-    </div>
+    <>
+      <ul className="books">
+        {books.map((book) => (
+          <Book
+            key={book.item_id}
+            id={book.item_id}
+            title={book.title}
+            author={book.author}
+            category={book.category}
+          />
+        ))}
+      </ul>
+      <Form />
+    </>
   );
 };
 
