@@ -14,27 +14,52 @@ const Book = (props) => {
 
   return (
     <div className="book">
-      <div>
-        <h3>
-          <span>Book title :</span>
-          {title}
-        </h3>
+      <div className="book-info-div">
+        <div>
+          <p className="p-top">
+            {category}
+          </p>
+        </div>
+        <div>
+          <h3>
+            {title}
+          </h3>
+        </div>
+        <div>
+          <p>
+            {author}
+          </p>
+        </div>
+        <div className="btn-div">
+          <button className="btn-one" type="button">
+            Comment
+          </button>
+          <button className="btn-one" type="button" onClick={handleRemoveClick}>
+            Remove
+          </button>
+          <button type="button">
+            Edit
+          </button>
+        </div>
+
       </div>
-      <div>
-        <p>
-          <span>Author :</span>
-          {author}
-        </p>
+      <div className="progress-bar">
+        <div>
+          <div className="outer-circle">
+            <div className="progress-strip" />
+            <div className="inner-circle" />
+          </div>
+        </div>
+        <div>
+          <h1>64%</h1>
+          <p>Completed</p>
+        </div>
       </div>
-      <div>
-        <p className="input">
-          <span>Category :</span>
-          {category}
-        </p>
+      <div className="chapter-info">
+        <p>CURRENT CHAPTER</p>
+        <p>Chapter 17</p>
+        <button className="upd-btn" type="button">UPDATE PROGRESS</button>
       </div>
-      <button type="button" onClick={handleRemoveClick}>
-        Remove
-      </button>
     </div>
   );
 };

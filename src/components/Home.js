@@ -7,6 +7,9 @@ const Home = () => (
     <div className="page-nav">
       <h2>Bookstore CMS</h2>
       <Navigation />
+      <div className="user">
+        <i className="fa-solid fa-user" />
+      </div>
     </div>
     <BookList />
   </div>
